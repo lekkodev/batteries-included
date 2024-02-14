@@ -1,35 +1,61 @@
-import fetch from "node-fetch";
+import assert from "assert";
 import retry from "./lekko-retry";
-import lekko from "@lekko/node-server-sdk";
+
+async function getAnswer(
+  _: (e: Error) => void,
+  attempt: number,
+): Promise<string | undefined> {
+  if (attempt < 3) {
+    throw new Error(`attempt: ${attempt}, please try at least 3 times`);
+  }
+  return "42";
+}
+
+async function doNotRetry(_: (e: Error) => void, attempt: number) {
+  if (attempt > 1) {
+    throw new Error("do not retry!");
+  }
+  throw "should fail";
+}
 
 async function main() {
   try {
-    const s = await retry(
-      async (bail, attempt) => {
-        console.log(`attempt: ${attempt}`);
-        // if anything throws, we retry
-        if (attempt < 3) {
-          throw new Error("test");
-        }
-        const res = await fetch("https://google.com");
-
-        if (403 === res.status) {
-          // don't retry upon 403
-          bail(new Error("Unauthorized"));
-          return;
-        }
-
-        const data = await res.text();
-        return data.substr(0, 500);
-      },
-      new lekko.ClientContext().setString("env", "prod"),
+    console.log(
+      await retry(getAnswer, {
+        env: "prod",
+      }),
     );
-    console.log(s);
   } catch (e) {
     console.log(e);
   }
+
+  try {
+    console.log(
+      await retry(
+        async (bail, attempt) => {
+          return getAnswer(bail, attempt);
+        },
+        {
+          fn: "getAnswer",
+          env: "prod",
+        },
+      ),
+    );
+  } catch (e) {
+    console.log(e);
+  }
+
+  try {
+    await retry(doNotRetry);
+  } catch (e) {
+    assert(e === "should fail");
+  }
 }
 
-main().finally(() => {
+try {
+  await main();
+} catch (e) {
+  console.log(e);
+} finally {
   process.exit();
-});
+}
