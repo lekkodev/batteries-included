@@ -43,3 +43,11 @@ message RetryConfig {
   bool randomize = 5;
 }
 ```
+
+# TODO
+
+- fallback to default if config does not exist
+- easy way to create a namespace/config in a new repo (from some template?)
+- try `AsyncLocalStorage` to avoid passing context everywhere
+- prod setup
+- singleton Lekko client
