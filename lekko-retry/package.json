@@ -1,0 +1,32 @@
+{
+  "name": "lekko-retry",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "index": "npx tsx src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@bufbuild/protobuf": "^1.7.2",
+    "@lekko/node-server-sdk": "file:../../node-server-sdk",
+    "@types/async-retry": "^1.4.8",
+    "@types/retry": "^0.12.5",
+    "async-retry": "^1.3.3",
+    "commander": "^12.0.0",
+    "figlet": "^1.7.0",
+    "node-fetch": "^3.3.2",
+    "retry": "^0.13.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.17",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.7.1",
+    "typescript": "^5.3.3"
+  }
+}
