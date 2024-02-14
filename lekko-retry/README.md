@@ -5,6 +5,8 @@ npm run index
 ```
 
 # Limitations
+- requires unreleased `lekko` CLI
+- path to Node SDK is hardcoded as `../../node-server-sdk`
 - relies on `retry/retry-config.star` present in default repo location, example content:
 ```
 default_config_v1beta1 = proto.package("default.config.v1beta1")
