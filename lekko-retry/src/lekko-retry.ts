@@ -7,7 +7,7 @@ const lekkoClient = await lekko.initClient();
 
 export default async function lekkoRetry<Type>(
   fn: retry.RetryFunction<Type>,
-  context?: JsonObject,
+  context?: { [key: string]: string | number | boolean },
 ): Promise<Type> {
   const ctx = lekko.ClientContext.fromJson(context);
   if (ctx.get("fn") === undefined && fn.name.length > 0) {
