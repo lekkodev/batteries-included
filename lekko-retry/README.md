@@ -46,7 +46,6 @@ message RetryConfig {
 
 # TODO
 
-- fallback to default if config does not exist
 - easy way to create a namespace/config in a new repo (from some template?)
 - try `AsyncLocalStorage` to avoid passing context everywhere
 - prod setup

@@ -11,13 +11,6 @@ async function getAnswer(
   return "42";
 }
 
-async function doNotRetry(_: (e: Error) => void, attempt: number) {
-  if (attempt > 1) {
-    throw new Error("do not retry!");
-  }
-  throw "should fail";
-}
-
 async function main() {
   try {
     console.log(
@@ -46,6 +39,13 @@ async function main() {
   }
 
   try {
+    async function doNotRetry(bail: (e: Error) => void, attempt: number) {
+      if (attempt > 1) {
+        bail(new Error("do not retry!"));
+      }
+      throw "should fail";
+    }
+
     await retry(doNotRetry);
   } catch (e) {
     assert(e === "should fail");
