@@ -1,0 +1,22 @@
+{
+  "name": "test-lekko-retry",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@lekko/node-server-sdk": "file:../../node-server-sdk",
+    "dotenv": "^16.4.4",
+    "lekko-retry": "file:../lekko-retry"
+  },
+  "devDependencies": {
+    "@tsconfig/node21": "^21.0.1",
+    "@types/node": "^20.11.19",
+    "typescript": "^5.3.3"
+  }
+}

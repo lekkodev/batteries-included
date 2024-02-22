@@ -1,3 +1,4 @@
+import * as lekko from "@lekko/node-server-sdk";
 import assert from "assert";
 import retry from "./lekko-retry";
 
@@ -12,6 +13,7 @@ async function getAnswer(
 }
 
 async function main() {
+  await lekko.setupClient();
   try {
     console.log(
       await retry(getAnswer, {
@@ -52,10 +54,10 @@ async function main() {
   }
 }
 
-try {
-  await main();
-} catch (e) {
-  console.log(e);
-} finally {
-  process.exit();
-}
+main()
+  .catch((e) => {
+    console.log(e);
+  })
+  .finally(() => {
+    process.exit();
+  });
