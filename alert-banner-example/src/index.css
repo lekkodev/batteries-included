@@ -1,16 +1,46 @@
-:root {
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  line-height: 1.15;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  margin: 0;
+
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+p {
+  margin-block-start: 1.5rem;
+  margin-block-end: 1.5rem;
 }
 
 a {
@@ -20,14 +50,6 @@ a {
 }
 a:hover {
   color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
 }
 
 h1 {
@@ -54,15 +76,76 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+#sidebar {
+  width: 16rem;
+  background-color: #efefef;
+  border-right: 1px solid #dfdfdf;
+  display: flex;
+  flex-direction: column;
+}
+
+#sidebar h1 {
+  font-size: 1.5rem;
+  margin: 0;
+  padding: 4rem 2rem 1.5rem 2rem;
+  border-bottom: 1px solid #dfdfdf;
+}
+
+#sidebar h1 a {
+  font-weight: 700;
+  color: #000000;
+}
+
+#sidebar h2 {
+  font-size: 1.25rem;
+  margin: 0;
+  padding: 1rem 2rem;
+}
+
+#sidebar nav {
+  flex: 0 0 auto;
+  padding: 1rem 0rem;
+}
+
+#sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#sidebar li {
+  margin: 0.5rem 0.5rem;
+}
+
+#sidebar li a {
+  display: flex;
+  padding: 0.5rem 2rem;
+  border-radius: 4px;
+  transition: background-color 200ms;
+}
+
+#sidebar li a:hover {
+  background-color: #dfdfdf;
+}
+
+#sidebar li a.active {
+  background-color: #646cff;
+  color: #ffffff;
+}
+
+#page {
+  flex: 1;
+  padding: 4rem;
+}
+
+#blocked {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+#blocked i {
+  color: #777777;
 }
