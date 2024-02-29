@@ -8,6 +8,8 @@ export function Blocked({ path, message }: BlockedFallbackProps) {
       <p>
         <i>{message}</i>
       </p>
+      <br />
+      <img key="blocked-img" src="https://placedog.net/480?id=147" />
     </div>
   );
 }

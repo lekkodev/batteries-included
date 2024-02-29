@@ -14,7 +14,7 @@ export function Integration() {
               We're not sure how exactly we're integrating with GitHub, but we
               have pictures of puppies.
             </p>
-            <img key="github-img" src="https://placedog.net/480?random" />
+            <img key="github-img" src="https://placedog.net/480?id=206" />
           </div>
         </div>
       );
@@ -29,7 +29,7 @@ export function Integration() {
               We're not sure how exactly we're integrating with Slack, but we
               have pictures of puppies.
             </p>
-            <img key="slack-img" src="https://placedog.net/480?random" />
+            <img key="slack-img" src="https://placedog.net/480?id=236" />
           </div>
         </div>
       );
@@ -44,7 +44,7 @@ export function Integration() {
               We're not sure how exactly we're integrating with OpenAI, but we
               have pictures of puppies.
             </p>
-            <img key="openai-img" src="https://placedog.net/480?random" />
+            <img key="openai-img" src="https://placedog.net/480?id=238" />
           </div>
         </div>
       );

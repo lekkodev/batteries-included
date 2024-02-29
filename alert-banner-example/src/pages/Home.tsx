@@ -6,7 +6,7 @@ export function Home() {
         The homepage of your SaaS product, the premier place to browse pictures
         of SaaSy dogs
       </p>
-      <img key="home-img" src="https://placedog.net/480?random" />
+      <img key="home-img" src="https://placedog.net/480?id=3" />
     </div>
   );
 }
