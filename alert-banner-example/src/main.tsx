@@ -8,20 +8,13 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
-import { LekkoSettings } from "@lekko/react-sdk";
 import { AlertBannerProvider } from "@lekko/react-components";
 import { Beta } from "./pages/Beta.tsx";
 import { Home } from "./pages/Home.tsx";
 import { Root } from "./pages/Root.tsx";
 import { Integration } from "./pages/Integration.tsx";
 import { Blocked } from "./pages/Blocked.tsx";
-
-const LEKKO_SETTINGS: LekkoSettings = {
-  apiKey: import.meta.env.VITE_LEKKO_API_KEY,
-  repositoryOwner: import.meta.env.VITE_LEKKO_REPOSITORY_OWNER,
-  repositoryName: import.meta.env.VITE_LEKKO_REPOSITORY_NAME,
-  hostname: import.meta.env.VITE_LEKKO_HOSTNAME,
-};
+import { getAlertBanner, getTheme } from "./lekko/plugins.ts";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -29,8 +22,10 @@ const router = createBrowserRouter(
       <Route
         element={
           <AlertBannerProvider
-            lekkoSettings={LEKKO_SETTINGS}
+            env={import.meta.env.MODE}
             blockedFallback={Blocked}
+            bannerConfig={getAlertBanner}
+            themeConfig={getTheme}
           />
         }
       >

@@ -10,14 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@lekko/react-components": "file:../../react-components",
-    "@lekko/react-sdk": "file:../../react-sdk",
+    "@lekko/react-components": "^0.0.7-beta-1",
+    "@lekko/react-sdk": "^0.7.2-beta-2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.0"
   },
   "devDependencies": {
-    "@lekko/node-server-sdk": "file:../../node-server-sdk",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
