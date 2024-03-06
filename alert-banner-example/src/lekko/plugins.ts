@@ -1,10 +1,14 @@
-export type AlertBannerConfig = {
-  banners?: Array<{ path: string; message: string; color?: string }>;
-  blocked?: Array<{ path: string; message: string }>;
-};
+export interface AlertBannerConfig {
+  banners?: { path: string; message: string; color?: string }[];
+  blocked?: { path: string; message: string }[];
+}
 
-export function getAlertBanner(context: { env: string }): AlertBannerConfig {
-  if (context.env === "production") {
+export async function getAlertBanner({
+  env,
+}: {
+  env: string;
+}): Promise<AlertBannerConfig> {
+  if (env === "production") {
     return {
       banners: [
         {
@@ -52,10 +56,17 @@ export function getAlertBanner(context: { env: string }): AlertBannerConfig {
   };
 }
 
-export type ThemeConfig = {
-  [colorName: string]: string;
-};
+export interface ThemeConfig {
+  info: string;
+}
 
-export function getTheme(): ThemeConfig {
-  return {};
+export async function getTheme({ env }: { env: string }): Promise<ThemeConfig> {
+  if (env === "production") {
+    return {
+      info: "#121212",
+    };
+  }
+  return {
+    info: "#000000",
+  };
 }

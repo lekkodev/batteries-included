@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
+import App from "./App";
 import "./index.css";
 import {
   Route,
@@ -9,12 +9,12 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import { AlertBannerProvider } from "@lekko/react-components";
-import { Beta } from "./pages/Beta.tsx";
-import { Home } from "./pages/Home.tsx";
-import { Root } from "./pages/Root.tsx";
-import { Integration } from "./pages/Integration.tsx";
-import { Blocked } from "./pages/Blocked.tsx";
-import { getAlertBanner, getTheme } from "./lekko/plugins.ts";
+import { Beta } from "./pages/Beta";
+import { Home } from "./pages/Home";
+import { Root } from "./pages/Root";
+import { Integration } from "./pages/Integration";
+import { Blocked } from "./pages/Blocked";
+import { getAlertBanner } from "./lekko/plugins";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,7 +25,6 @@ const router = createBrowserRouter(
             env={import.meta.env.MODE}
             blockedFallback={Blocked}
             bannerConfig={getAlertBanner}
-            themeConfig={getTheme}
           />
         }
       >
