@@ -1,0 +1,10 @@
+{
+  "name": "eslint-plugin-lekko",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "@typescript-eslint/parser": "^7.2.0",
+    "@typescript-eslint/rule-tester": "^7.2.0",
+    "jest-runner-eslint": "^2.2.0"
+  }
+}
