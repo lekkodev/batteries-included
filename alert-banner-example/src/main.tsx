@@ -13,8 +13,13 @@ import { Beta } from "./pages/Beta.tsx";
 import { Home } from "./pages/Home.tsx";
 import { Root } from "./pages/Root.tsx";
 import { Integration } from "./pages/Integration.tsx";
-import { Blocked } from "./pages/Blocked.tsx";
 import { getAlertBanner, getTheme } from "./lekko/plugins.ts";
+
+const lekkoSettings = {
+  repositoryOwner: import.meta.env.VITE_LEKKO_REPOSITORY_OWNER,
+  repositoryName: import.meta.env.VITE_LEKKO_REPOSITORY_NAME,
+  apiKey: import.meta.env.VITE_LEKKO_API_KEY,
+};
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -23,7 +28,7 @@ const router = createBrowserRouter(
         element={
           <AlertBannerProvider
             env={import.meta.env.MODE}
-            blockedFallback={Blocked}
+            lekkoSettings={lekkoSettings}
             bannerConfig={getAlertBanner}
             themeConfig={getTheme}
           />

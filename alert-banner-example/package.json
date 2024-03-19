@@ -6,17 +6,20 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "lekko-banner-init-configs": "mkdir -p ./src/lekko && cp plugins.ts.TEMPLATE ./src/lekko/plugins.ts",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@lekko/react-components": "^0.0.7-beta-2",
-    "@lekko/react-sdk": "^0.7.2-beta-2",
+    "@lekko/react-components": "^0.0.7-beta-6",
+    "@lekko/react-sdk": "^0.7.2-beta-6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.0"
   },
   "devDependencies": {
+    "@lekko/ts-transformer": "^0.0.0-beta-1",
+    "@lekko/vite-plugin": "^0.0.0-beta-2",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
