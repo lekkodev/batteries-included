@@ -8,31 +8,18 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
-import { AlertBannerProvider } from "@lekko/react-components";
 import { Beta } from "./pages/Beta.tsx";
 import { Home } from "./pages/Home.tsx";
 import { Root } from "./pages/Root.tsx";
 import { Integration } from "./pages/Integration.tsx";
-import { getAlertBanner, getTheme } from "./lekko/plugins.ts";
-import "@lekko/react-components/dist/banner.css";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
-      <Route
-        element={
-          <AlertBannerProvider
-            env={import.meta.env.MODE}
-            bannerConfig={getAlertBanner}
-            themeConfig={getTheme}
-          />
-        }
-      >
-        <Route path="/" element={<Root />} />
-        <Route path="home" element={<Home />} />
-        <Route path="beta" element={<Beta />} />
-        <Route path="integrations/:integrationId" element={<Integration />} />
-      </Route>
+      <Route path="/" element={<Root />} />
+      <Route path="home" element={<Home />} />
+      <Route path="beta" element={<Beta />} />
+      <Route path="integrations/:integrationId" element={<Integration />} />
     </Route>
   )
 );
