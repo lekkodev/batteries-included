@@ -1,7 +1,15 @@
 // This is the schema for your banner configuration.
 export interface AlertBannerConfig {
   // This controls whether banners are shown on what paths, and with what contents.
-  banners?: { path: string; message: string; color?: string }[];
+  banners?: {
+    path: string;
+    message: string;
+    color?: string;
+    cta?: {
+      url: string;
+      text: string;
+    }
+  }[];
   // This controls which pages are blocked on your application, and with what message.
   blocked?: { path: string; message: string }[];
 }
@@ -33,6 +41,10 @@ export async function getAlertBanner({ env }: { env: string }): Promise<AlertBan
       {
         message: "Congratulations, you've set up a banner using Lekko!",
         path: "*",
+        cta: {
+          url: "/home",
+          text: "Learn more",
+        }
       },
       {
         color: "warning",
