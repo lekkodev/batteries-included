@@ -8,8 +8,8 @@ export default function Page() {
         <h1>GitHub Integration</h1>
         <div>
           <p>
-            We're not sure how exactly we're integrating with GitHub, but we
-            have pictures of puppies.
+            We&apos;re not sure how exactly we&apos;re integrating with GitHub,
+            but we have pictures of puppies.
           </p>
           <Image
             key="github-img"
