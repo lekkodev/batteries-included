@@ -2,8 +2,8 @@ import Link from "next/link";
 import "@lekko/next-banner/styles.css";
 import "./index.css";
 import type { Metadata } from "next";
-import { LekkoBannerProvider } from "@lekko/next-banner";
 import { getBannerConfig, getBannerStyles } from "@/lekko/plugins";
+import BannerWrapper from "@/components/banner-wrapper";
 
 // TODO: icon
 export const metadata: Metadata = {
@@ -18,11 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <LekkoBannerProvider
-          context={{}}
-          bannerConfig={getBannerConfig}
-          styleConfig={getBannerStyles}
-        >
+        <BannerWrapper>
           <div id="root">
             <div id="sidebar">
               <h1>
@@ -56,7 +52,7 @@ export default function RootLayout({
             </div>
             <div id="page">{children}</div>
           </div>
-        </LekkoBannerProvider>
+        </BannerWrapper>
       </body>
     </html>
   );

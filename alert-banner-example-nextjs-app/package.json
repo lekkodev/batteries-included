@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@lekko/next-banner": "^0.1.0-beta-1",
+    "@lekko/react-banner": "^0.1.0-beta-1",
     "@lekko/react-sdk": "^0.8.0-beta-2",
     "next": "14.1.4",
     "react": "^18",
