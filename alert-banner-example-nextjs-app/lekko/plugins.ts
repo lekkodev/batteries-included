@@ -15,9 +15,9 @@ export interface BannerConfig {
     external?: boolean;
   };
   /**
-   * Whether a close button should be rendered. Defaults to true.
+   * If set to true, the close button will not be rendered.
    */
-  dismissable?: boolean;
+  permanent?: boolean;
 }
 
 export function getBannerConfig({
@@ -25,17 +25,23 @@ export function getBannerConfig({
 }: {
   pathname: string;
 }): BannerConfig {
-  if (pathname === "/beta") {
+  if (pathname === "/404") {
     return {
-      text: "Beta program banner",
+      text: "Oh no, page not found",
       cta: {
-        text: "Learn more",
-        url: "/home",
+        text: "Take me back",
+        url: "/",
       },
+      permanent: true,
     };
   }
   return {
-    text: "Congratulations, you've successfully configured the Lekko banner! 🎉",
+    text: "Congratulations, you've successfully configured a banner using Lekko! 🎉",
+    cta: {
+      text: "Learn more",
+      url: "https://www.lekko.com/",
+      external: true,
+    },
   };
 }
 
@@ -58,9 +64,11 @@ export interface BannerStyleConfig {
   closeClassName?: string;
 }
 
-export function getBannerStyles({ env }: { env: string }): BannerStyleConfig {
+export function getBannerStyles(): BannerStyleConfig {
   return {
-    className: "root-classname",
-    ctaClassName: "cta-classname",
+    className: "banner-root",
+    textClassName: "banner-text",
+    ctaClassName: "banner-cta",
+    closeClassName: "banner-close",
   };
 }
