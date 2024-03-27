@@ -2,10 +2,10 @@
 const nextConfig = {
   webpack(config, { isServer }) {
     if (!isServer && process.env.NODE_ENV === "production") {
-      // config.module.rules.push({
-      //   test: /lekko\/.*\.ts$/,
-      //   loader: "@lekko/webpack-loader",
-      // });
+      config.module.rules.push({
+        test: /lekko\/.*\.ts$/,
+        loader: "@lekko/webpack-loader",
+      });
     }
     return config;
   },
