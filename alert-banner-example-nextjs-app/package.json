@@ -9,14 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@lekko/react-banner": "^0.1.0-beta-2",
-    "@lekko/react-sdk": "^0.8.0-beta-2",
     "next": "14.1.4",
     "react": "^18",
     "react-dom": "^18"
   },
   "devDependencies": {
-    "@lekko/webpack-loader": "^0.0.0-beta-5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
